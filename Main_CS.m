@@ -245,7 +245,11 @@ for m = 1:length(all_files)
                 Temp_Coordinates_Unit(3,:); ((Temp_Coordinates_Unit_TST(4,:) + Temp_Coordinates_Unit(4,:)).'/2)'
                 Temp_Coordinates_Unit(5,:); ((Temp_Coordinates_Unit_TST(6,:) + Temp_Coordinates_Unit(6,:)).'/2)'];
         end
+        %% Transformation Matrix
+        % format long
+        TM = TranMat(coords_final);
 
+        writematrix(TM,strcat(FolderPathName,'\TransformationMatrix.txt'));
         %% Similarity
         max_Z = similaritytest(Temp_Coordinates_Unit, bone_indx, bone_coord(n));
         crit_Z = 1.645; % alpha = 0.05
